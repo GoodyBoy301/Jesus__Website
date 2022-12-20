@@ -1,0 +1,73 @@
+%link {
+  text-decoration: none;
+}
+
+%text-0 {
+  visibility: hidden;
+  font-size: 0;
+  &:before,
+  &:after {
+    visibility: visible;
+  }
+}
+
+%text-10 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+%text-14-m {
+  @include media("<phone") {
+    line-height: 1.2;
+    font-size: 1.4rem;
+  }
+}
+
+%text-15-m {
+  @include media("<phone") {
+    font-size: clamp(0rem, 1.5rem, 20px);
+    line-height: 1.25;
+  }
+}
+
+%text-16 {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  @include media("<phone") {
+    font-size: 1rem;
+  }
+}
+
+%text-18 {
+  font-size: 1.8rem;
+  line-height: 1.2;
+  font-weight: 500;
+  @include media("<phone") {
+    font-size: 1.1rem;
+  }
+}
+
+%text-20 {
+  font-size: 2rem;
+  line-height: 1.2;
+  @include media("<phone") {
+    font-size: clamp(0rem, 1.4rem, 15px);
+  }
+}
+
+%text-22 {
+  font-size: 2rem;
+  line-height: 1.2;
+  @include media("<phone") {
+    font-size: clamp(0rem, 1.1rem, 15px);
+  }
+}
+
+%text-30 {
+  font-size: 3rem;
+  line-height: 1.5;
+  @include media("<phone") {
+    font-size: clamp(0rem, 0.9rem, 15px);
+    line-height: 1.2;
+  }
+}

@@ -1,0 +1,18 @@
+@import "./utils/variables";
+@import "./utils/responsive";
+
+@import "./base/reset";
+
+@import "./shared/text";
+@import "./shared/title";
+@import "./shared/images";
+@import "./shared/icons";
+@import "./shared/layout";
+
+@import "./base/base";
+
+@import "./partials/footer/footer";
+@import "./partials/header/header";
+@import "./partials/preloader/preloader";
+
+@import "./pages/home/home";

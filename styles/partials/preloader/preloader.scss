@@ -1,0 +1,18 @@
+.preloader {
+  @extend %screen-full;
+  z-index: $z-9;
+  display: grid;
+  place-content: center;
+  transform-origin: 100%;
+}
+.preloader__text {
+  span {
+    display: inline-block;
+  }
+}
+.preloader__number {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+}

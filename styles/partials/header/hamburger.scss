@@ -1,0 +1,10 @@
+.hamburger {
+  @extend %mobile;
+  display: none;
+  @include media("<phone") {
+    display: block;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+.footer {
+  @extend %fixed;
+  @extend %hard-center;
+  bottom: 0;
+}
