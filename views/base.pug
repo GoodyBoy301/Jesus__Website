@@ -39,12 +39,16 @@ html(lang="en")
     meta(property="twitter:image" content=image ? image : "")
     meta(property="twitter:site" content=site ? site : "")
 
+    //- link(href="https://fonts.cdnfonts.com/css/gobold?styles=26043" rel="stylesheet")
+    link(href="/type.css" rel="stylesheet")
+                
+
   body
     style
       include ../public/main.css
 
-    include ./partials/preloader
-    include ./partials/header
+    //- include ./partials/preloader
+    include ./partials/nav
 
     .content#content(data-template=template)
       block content
