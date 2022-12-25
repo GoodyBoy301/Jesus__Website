@@ -53,8 +53,6 @@ html(lang="en")
     .content#content(data-template=template)
       block content
 
-      if template === "home"
-        include ./partials/footer
     script.
       window.preloadables = !{JSON.stringify(preloadables).replace(/<\//g, "<\\/")}
     script(src="main.js") 
