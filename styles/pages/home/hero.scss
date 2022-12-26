@@ -1,0 +1,64 @@
+.home {
+  display: block;
+}
+.home__wrapper {
+  @extend %body;
+  min-height: 527rem;
+}
+.home__title {
+  // width: 52.1rem;
+  width: 75rem;
+  margin: 0 auto;
+}
+.home__title__text {
+  @extend %text-title;
+  text-align: center;
+  color: $color-white;
+}
+
+.home__intro {
+  display: block;
+}
+.home__into__wrapper {
+  display: grid;
+}
+.home__intro__media {
+  @extend %fixed;
+  top: 50.3rem;
+  width: 51.5rem;
+  margin: 0 auto;
+  display: grid;
+  place-content: center;
+}
+.home__intro__circle {
+  width: 20.7rem;
+  animation: spin infinite 20s linear;
+  margin: 0 auto;
+}
+.home__intro__statue {
+  width: 52.5rem;
+  position: absolute;
+  min-height: 77.705rem;
+  top: 2.8rem;
+}
+
+.home__intro__details {
+  margin-top: 19.7rem;
+  display: grid;
+  gap: 10rem;
+}
+.home__intro__text {
+  @extend %text-m;
+  width: 41.2rem;
+  margin-left: 4rem;
+
+  &:first-of-type {
+    margin-left: auto;
+  }
+}
+
+.home__intro__subtext {
+}
+
+.home__intro__link {
+}

@@ -1,0 +1,27 @@
+.home__works {
+  display: block;
+  // overflow: hidden;
+  max-width: calc(151.2rem - 20.2rem);
+  margin: 22.5rem 0 30rem;
+  // min-height:700vh;
+  // position:relative;
+}
+.home__works__wrapper {
+  display: flex;
+  width: fit-content;
+  // translate: calc(-130rem * 6);
+}
+.home__works__heading {
+  min-width: calc(151.2rem - 20.2rem);
+  // margin: 25rem 0 0rem;
+}
+.home__works__title {
+  @extend %text-title-s;
+  width: 71.7rem;
+}
+.home__works__media {
+  margin: 14.336rem auto 0;
+  width: 111.353rem;
+}
+.home__works__bible {
+}

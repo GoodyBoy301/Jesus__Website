@@ -1,0 +1,37 @@
+.home__tweets {
+}
+.home__tweets__wrapper {
+  margin: 27.5rem 0;
+}
+.home__tweets__head {
+  display: flex;
+  align-items: center;
+}
+.home__tweets__title {
+  @extend %text-title-s;
+  width: 65rem;
+}
+.home__tweets__subtitle {
+  @extend %text-m;
+  width: 25rem;
+  padding: 5rem 2.5rem 0;
+}
+.home__tweets__grid {
+}
+.home__grid__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5rem calc(-50rem) 20rem calc(-15rem);
+  gap: 1.5rem 1rem;
+}
+.home__tweet {
+  width: 43rem;
+  height: 33.3rem;
+  background: $color-white;
+  &:first-of-type {
+    margin-left: 16.7rem;
+  }
+  &:last-of-type {
+    margin-right: 16.7rem;
+  }
+}

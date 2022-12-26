@@ -1,0 +1,18 @@
+.home__stats {
+  display: block;
+}
+.home__stats__wrapper {
+  display:flex;
+  margin: 12.995rem calc(-10.1rem + 2.5rem);
+  justify-content:space-between;
+}
+.home__stat {
+  display:block
+}
+.home__stats__number {
+  @extend %text-stat;
+}
+.home__stats__description {
+  @extend %text-l;
+  margin:2.75rem 2rem;
+}
