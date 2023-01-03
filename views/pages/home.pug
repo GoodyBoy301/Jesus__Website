@@ -2,12 +2,13 @@ extends ../base.pug
 
 block variables
   - var template = "home"
+  - var tweets = updates.statuses.slice(0,8)
 
 block content 
   main.home
     .home__wrapper 
       header.home__title
-        h1.home__title__text Jesus Christ 
+        h1.home__title__text Jesus Christ
 
       .home__intro 
         .home__into__wrapper
@@ -54,17 +55,19 @@ block content
             h2.home__tweets__title Live Updates 
             p.home__tweets__subtitle 
              |  Tweet with the Hashtag 
-             |  #insertHashtag 
+             |  #miraclenodeytireJesus 
           .home__tweets__grid
             .home__grid__wrapper
-              article.home__tweet
-              article.home__tweet
-              article.home__tweet
-              article.home__tweet
-              article.home__tweet
-              article.home__tweet
-              article.home__tweet
-              article.home__tweet
+              each tweet in tweets
+                article.home__tweet
+                  .home__tweet__user
+                    figure.home__tweet__media
+                      img.home__tweet__image(src=tweet.user.profile_image_url, alt="" width="64" height="64")
+                    p.home__tweet__name #{tweet.user.name} 
+                  P.home__tweet__text #{tweet.text}
+                  P.home__tweet__date #{tweet.created_at}
+                  P.Home__tweet__favorite
+                    | Likes: #{tweet.favorite_count}
 
       .home__contact 
         .home__contact__wrapper 
