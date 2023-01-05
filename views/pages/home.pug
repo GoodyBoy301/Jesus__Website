@@ -2,7 +2,7 @@ extends ../base.pug
 
 block variables
   - var template = "home"
-  - var tweets = updates.statuses.slice(0,8)
+  - var tweets = updates?.statuses?.slice(0,8) || []
 
 block content 
   main.home
