@@ -1,86 +1,74 @@
-import * as preloader from "animations/preloader";
-import gsap from "gsap";
+import * as animate from "animations/@preloader";
 import Component from "classes/Component";
-import { MeshBasicMaterial, TextureLoader, sRGBEncoding } from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { split } from "utils/text";
+import gsap from "gsap";
+import SplitType from "split-type";
+import { asyncRandom } from "utils/random";
 
 export default class Preloader extends Component {
   constructor() {
     super({
       element: ".preloader",
       elements: {
-        // text: "",
-        // progress: "",
+        percentage: ".preloader__number",
+        texts: ".preloader__text",
+        bar: ".preloader__bar",
       },
     });
-    split({ element: this.elements.text });
-    this.length = 0;
+    this.percentage = new SplitType(this.elements.percentage);
+    this.texts = new SplitType(this.elements.texts);
     this.limit = 100;
-    this.assets = preloadables;
-    this.create();
-  }
+    this.value = "00";
+    this.amountLoaded = 0;
+    this.remainder = 0;
 
-  create() {
-    const textureLoader = new TextureLoader();
-    const gltfLoader = new GLTFLoader();
-    const images = this.assets.images;
-    const videos = this.assets.videos;
-    Canvas.textures = {};
-    Canvas.materials = {};
-    Canvas.exports = {};
-    images.forEach((src) => {
-      const image = new Image();
-      image.src = src;
-      image.onload = () => this.onAssetLoaded();
-    });
-    videos.forEach((src) => {
-      const video = document.createElement("video");
-      video.src = src;
-    });
-    Object.entries(this.assets.textures).forEach(([name, src]) => {
-      textureLoader.load(src, (texture) => {
-        const map = texture;
-        map.flipY = false;
-        map.encoding = sRGBEncoding;
-        if (name === "about") Canvas.textures[name] = texture;
-        else
-          Canvas.materials[name] = new MeshBasicMaterial({
-            map,
-            transparent: true,
-            opacity: 0,
-          });
-        this.onAssetLoaded();
-      });
-    });
-    Object.entries(this.assets.exports).forEach(([name, src]) => {
-      gltfLoader.load(src, (group) => {
-        Canvas.exports[name] = group.scene;
-        this.onAssetLoaded();
-      });
-    });
-  }
-  onAssetLoaded() {
-    this.length += 1;
-    const percentage = Math.round(
-      (this.length /
-        (this.assets.images.length +
-          Object.values(this.assets.textures).length +
-          Object.values(this.assets.exports).length)) *
-        this.limit
-    );
-    this.elements.progress.innerText = `${Math.min(percentage, 301)} / 301`;
-    if (percentage === this.limit) this.onCompleted();
+    animate.enter(this.percentage, this.texts, this.pseudoPreload.bind(this));
   }
 
   async onCompleted() {
-    const temp = setTimeout(() => {
-      this.dispatchEvent({ type: "preloaded" });
-      clearTimeout(temp);
-    }, 2725);
-
-    await preloader.leave();
+    this.dispatchEvent({ type: "preloaded" });
     this.destroy();
+  }
+
+  async pseudoPreload() {
+    if (this.amountLoaded === this.limit) return;
+
+    const random = await asyncRandom(5, 200);
+
+    this.amountLoaded += random;
+    if (this.amountLoaded >= this.limit) this.amountLoaded = this.limit;
+
+    gsap.to(this.elements.bar, {
+      width: `${this.amountLoaded}%`,
+      delay: 0.4,
+      duration: 0.4,
+    });
+
+    this.value = ("0" + Math.floor(this.amountLoaded)).slice(-2);
+    this.percentage.chars[0].innerText = this.value[0];
+    this.percentage.chars[1].innerText = this.value[1];
+
+    const remainder = Math.floor(this.amountLoaded / 20);
+
+    if (this.remainder === 4) {
+      this.amountLoaded === this.limit
+        ? animate.leave(
+            this.elements.percentage,
+            this.texts,
+            this.onCompleted.bind(this)
+          )
+        : this.pseudoPreload();
+    } else if (this.remainder !== remainder) {
+      animate.progress(
+        this.remainder,
+        remainder,
+        this.texts,
+        this.pseudoPreload.bind(this)
+      );
+    } else {
+      requestAnimationFrame(this.pseudoPreload.bind(this));
+    }
+
+    this.remainder = remainder;
   }
 
   destroy() {
