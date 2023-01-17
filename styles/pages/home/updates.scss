@@ -2,36 +2,200 @@
 }
 .home__tweets__wrapper {
   margin: 27.5rem 0;
+  @include media("<phone") {
+    margin: 15rem 0 13rem;
+  }
 }
 .home__tweets__head {
+  @extend %gray-to-black;
   display: flex;
   align-items: center;
+  @include media("<phone") {
+    display: unset;
+  }
 }
 .home__tweets__title {
   @extend %text-title-s;
   width: 65rem;
+  @include media("<phone") {
+    width: 31.9rem;
+    font-size: 8.9717rem;
+  }
 }
 .home__tweets__subtitle {
   @extend %text-m;
   width: 25rem;
   padding: 5rem 2.5rem 0;
+  @include media("<phone") {
+    font-size: 1.4rem;
+    line-height: 1.5rem;
+    position: relative;
+    padding: unset;
+    bottom: 13.5rem;
+    width: 14rem;
+    left: 16.25rem;
+  }
 }
 .home__tweets__grid {
 }
 .home__grid__wrapper {
   display: flex;
   flex-wrap: wrap;
-  margin: 5rem calc(-50rem) 20rem calc(-15rem);
-  gap: 1.5rem 1rem;
+  // margin: 5rem calc(-50rem) 20rem calc(-15rem);
+  margin: 5rem calc(-65rem) 20rem -9.6rem;
+  // gap: 1.6rem 1.33rem;
+  @include media("<phone") {
+    margin-top: unset;
+    // width: calc(55rem + 9.2rem);
+    width: calc(65rem + 9.2rem);
+    margin-left: -12rem;
+    margin-bottom: unset;
+  }
 }
 .home__tweet {
-  width: 43rem;
-  height: 33.3rem;
+  font-family: "Inter";
+  width: 37.7rem;
+  // max-height: 33.3rem;
   background: $color-white;
-  &:first-of-type {
-    margin-left: 16.7rem;
+  padding: 2.51132rem;
+  display: grid;
+  isolation: isolate;
+  gap: 1.256rem;
+  box-shadow: 0rem 0.833333rem 1.66667rem rgba(0, 0, 0, 0.1);
+  position: relative;
+  min-height: 18.1566rem;
+  &:nth-of-type(1) {
+    width: 37.7rem;
+    margin: 0 1.91rem 0 0;
   }
-  &:last-of-type {
-    margin-right: 16.7rem;
+  &:nth-of-type(2) {
+    width: 37.66985rem;
+    margin: 3rem 2.72rem 2.143rem 0;
   }
+  &:nth-of-type(3) {
+    width: 42.6rem;
+    margin: -2rem 1.7rem 0 0;
+  }
+  &:nth-of-type(4) {
+    width: 37.7rem;
+    margin: 0 0 2rem 0;
+  }
+  &:nth-of-type(5) {
+    width: 37.57rem;
+    margin: 1.6rem 1.43rem 3.6rem 1.9rem;
+  }
+  &:nth-of-type(6) {
+    width: 37.7rem;
+    margin: 0 3.75rem 0 0;
+  }
+  &:nth-of-type(7) {
+    width: 34rem;
+    margin: 4rem 3.75rem 6rem 0;
+  }
+  &:nth-of-type(8) {
+    width: 37.7rem;
+    margin: 1.5rem 0 0;
+  }
+  @include media("<phone") {
+    width: 25.1rem;
+    height: 16.2rem;
+    &:nth-of-type(1) {
+      margin-left: calc(3.7rem + 9.2rem);
+    }
+    &:nth-of-type(3) {
+      margin-left: calc(-4.2rem + 9.2rem);
+    }
+    &:nth-of-type(5) {
+      margin-left: calc(-9.2rem + 9.2rem);
+    }
+    &:nth-of-type(7),
+    &:nth-of-type(8) {
+      display: none;
+    }
+  }
+}
+.home__tweet__user {
+  display: flex;
+  align-items: center;
+}
+.home__tweet__media {
+  width: 5.023rem;
+  height: 5.023rem;
+  border-radius: 50%;
+  @include media("<phone") {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+}
+.home__tweet__image {
+  border-radius: 100%;
+}
+.home__tweet__names {
+  @extend %text-l;
+  padding-left: 1.256rem;
+  @include media("<phone") {
+    font-size: 1rem;
+    padding-left: 1rem;
+  }
+}
+.home__tweet__displayname {
+  font-size: 1.50679rem;
+  line-height: 1.8rem;
+  color: #14171a;
+  display: inline-block;
+  position: relative;
+  @include media("<phone") {
+    font-size: 1rem;
+    padding-left: 1rem;
+  }
+}
+.home__tweet__username {
+  font-size: 1.33937rem;
+  line-height: 1.6rem;
+  color: #657786;
+  &::before {
+    content: "@";
+  }
+  @include media("<phone") {
+    font-size: 1rem;
+    padding-left: 1rem;
+  }
+}
+.home__tweet__verified {
+  position: absolute;
+  left: calc(100% + 0.419rem);
+  top: 0;
+  width: 1.758rem;
+  height: 1.758rem;
+}
+.home__tweet__text {
+  @extend %text-m;
+  font-size: 1.67422rem;
+  line-height: 2rem;
+  @include media("<phone") {
+    font-size: 1rem;
+    padding-top: 1rem;
+  }
+}
+.home__tweet__meta {
+  @extend %text-m;
+  @include media("<phone") {
+    font-size: 1rem;
+    padding-top: 1rem;
+  }
+}
+.home__tweet__time {
+  @extend %text-m;
+  @include media("<phone") {
+    font-size: 1rem;
+    padding-top: 1rem;
+  }
+}
+
+.home__tweet__icon {
+  position: absolute;
+  right: 2.511rem;
+  top: 2.511rem;
+  width: 3.014rem;
+  height: 2.449rem;
 }

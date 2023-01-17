@@ -3,6 +3,7 @@ extends ../base.pug
 block variables
   - var template = "home"
   - var tweets = updates?.statuses?.slice(0,8) || []
+  - var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 block content 
   main.home
@@ -66,18 +67,25 @@ block content
                   .home__tweet__user
                     figure.home__tweet__media
                       img.home__tweet__image(src=tweet.user.profile_image_url, alt="" width="64" height="64")
-                    p.home__tweet__name #{tweet.user.name} 
-                  P.home__tweet__text #{tweet.text}
-                  P.home__tweet__date #{tweet.created_at}
-                  P.Home__tweet__favorite
-                    | Likes: #{tweet.favorite_count}
+                    .home__tweet__names
+                      p.home__tweet__displayname #{tweet.user.name} 
+                        svg.home__tweet__verified(width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg")
+                          path(fill-rule="evenodd" clip-rule="evenodd" d="M5.95766 2.09884C6.51068 1.05553 7.60758 0.344238 8.87166 0.344238C10.1357 0.344238 11.2326 1.05553 11.7857 2.09884C12.9144 1.75215 14.193 2.02482 15.0869 2.91866C15.9807 3.8125 16.2534 5.09109 15.9067 6.21986C16.95 6.77289 17.6613 7.86979 17.6613 9.13387C17.6613 10.398 16.95 11.4949 15.9067 12.0479C16.2534 13.1767 15.9807 14.4552 15.0869 15.3491C14.193 16.2429 12.9144 16.5156 11.7857 16.1689C11.2326 17.2122 10.1357 17.9235 8.87166 17.9235C7.60758 17.9235 6.51068 17.2122 5.95766 16.1689C4.82888 16.5156 3.55029 16.2429 2.65645 15.3491C1.76262 14.4552 1.48995 13.1767 1.83663 12.0479C0.793324 11.4949 0.0820312 10.398 0.0820312 9.13387C0.0820312 7.86979 0.793323 6.77289 1.83663 6.21986C1.48995 5.09109 1.76261 3.81251 2.65645 2.91866C3.5503 2.02482 4.82888 1.75216 5.95766 2.09884ZM13.0577 6.92818C13.1221 6.99254 13.1221 7.09689 13.0577 7.16125L7.85246 12.3665C7.7881 12.4308 7.68375 12.4308 7.61939 12.3665L4.74486 9.49195C4.6805 9.42759 4.6805 9.32324 4.74486 9.25888L5.67714 8.3266C5.7415 8.26224 5.84585 8.26224 5.91021 8.3266L7.61939 10.0358C7.68375 10.1001 7.7881 10.1001 7.85246 10.0358L11.8923 5.9959C11.9567 5.93154 12.0611 5.93154 12.1254 5.9959L13.0577 6.92818Z" fill="#1DA1F2")
+                          path(d="M13.0577 7.16125C13.1221 7.09689 13.1221 6.99254 13.0577 6.92818L12.1254 5.9959C12.0611 5.93154 11.9567 5.93154 11.8923 5.9959L7.85246 10.0358C7.7881 10.1001 7.68375 10.1001 7.61939 10.0358L5.91021 8.3266C5.84585 8.26224 5.7415 8.26224 5.67714 8.3266L4.74486 9.25888C4.6805 9.32324 4.6805 9.42759 4.74486 9.49195L7.61939 12.3665C7.68375 12.4308 7.7881 12.4308 7.85246 12.3665L13.0577 7.16125Z" fill="white")
+                      p.home__tweet__username #{tweet.user.screen_name} 
+
+                  p.home__tweet__text #{tweet.text}
+                  .home__tweet__meta
+                    //- p.home__tweet__time #{`${new Date(tweet.created_at).toLocaleString("en-US", {hour: "numeric", minute: "numeric", hour12: true})} · ${months[new Date(tweet.created_at).getMonth()]} ${new Date(tweet.created_at).getDate()}, ${new Date(tweet.created_at).getFullYear()} ${tweet.source.split(">").toString().split("<").toString().split("/")[4]}}`}
+                  svg.home__tweet__icon(width="31" height="25" viewBox="0 0 31 25" fill="none" xmlns="http://www.w3.org/2000/svg")
+                    path(d="M27.8026 6.20934C27.821 6.47501 27.821 6.74068 27.821 7.0088C27.821 15.1785 21.6016 24.6006 10.2292 24.6006V24.5957C6.86973 24.6006 3.58006 23.6383 0.751953 21.8239C1.24044 21.8827 1.73138 21.9121 2.22355 21.9133C5.00758 21.9158 7.71204 20.9816 9.90229 19.2615C7.2566 19.2113 4.93658 17.4863 4.1261 14.9679C5.05288 15.1467 6.00783 15.1099 6.91748 14.8614C4.03305 14.2786 1.95788 11.7444 1.95788 8.80116C1.95788 8.77423 1.95788 8.74852 1.95788 8.72281C2.81733 9.2015 3.77962 9.46718 4.76395 9.49656C2.04725 7.68094 1.20984 4.06683 2.85039 1.24117C5.98946 5.10381 10.621 7.452 15.5928 7.70053C15.0945 5.55312 15.7752 3.30288 17.3815 1.79333C19.8717 -0.547514 23.7882 -0.427533 26.129 2.06145C27.5137 1.78843 28.8408 1.28035 30.0553 0.560468C29.5938 1.99166 28.6278 3.20738 27.3374 3.97991C28.5629 3.83544 29.7603 3.50733 30.8878 3.0066C30.0578 4.25048 29.0122 5.33397 27.8026 6.20934Z" fill="#1D9BF0")
 
       .home__contact 
         .home__contact__wrapper 
           h2.home__contact__title Contact Me
             span(data-reveal="grayToBlack" data-delay="0.25")
           p.home__contact__text 
-            | As the Son of God, I have a unique set of skills and abilities that I can bring to your project. While I was on Earth, you could find me in the Temple flipping tables, or taking a casual stroll across the sea of Galilee. However, I am currently taking an extended vacation at my Father's House, seated at His right and. If you would like to discuss your need further, you can reach me through prayer at any time. I am always available to listen and offer guidance.
+            | As the Son of God, I have a unique set of skills and abilities that I can bring to your project. While I was on Earth, you could find me in the Temple flipping tables, or taking a casual stroll across the sea of Galilee. However, I am currently taking an extended vacation at my Father's House, seated at His right hand. If you would like to discuss your need further, you can reach me through prayer at any time. I am always available to listen and offer guidance.
             span.home__contact__closure I look forward to the opportunity to walk with you.
 
         include ../partials/footer
