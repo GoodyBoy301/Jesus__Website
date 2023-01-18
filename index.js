@@ -4,9 +4,12 @@ const express = require("express");
 const path = require("path");
 const preloadables = require("./preloadables");
 const Twitter = require("twitter");
+const sampleTweet = require("./sampleTweet");
 const app = express();
 const port = process.env.port || 5000;
-let updates = [];
+let updates = {};
+updates.statuses = new Array(8);
+updates.statuses.fill(sampleTweet);
 
 const client = new Twitter({
   consumer_key: process.env.TWITTER_API_KEY,
@@ -19,7 +22,7 @@ client.get(
   "search/tweets",
   { q: "#miraclenodeytirejesus" },
   (error, tweets) => {
-    updates = tweets;
+    if (tweets?.statuses) updates = tweets;
   }
 );
 
@@ -32,7 +35,7 @@ app.get("/", (req, res) => {
     "search/tweets",
     { q: "#miraclenodeytirejesus" },
     (error, tweets) => {
-      updates = tweets;
+      if (tweets?.statuses) updates = tweets;
       res.render("pages/home", {
         preloadables,
         updates,

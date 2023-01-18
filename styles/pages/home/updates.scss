@@ -48,7 +48,7 @@
     margin-top: unset;
     // width: calc(55rem + 9.2rem);
     width: calc(65rem + 9.2rem);
-    margin-left: -12rem;
+    margin-left: -5.1rem;
     margin-bottom: unset;
   }
 }
@@ -58,58 +58,78 @@
   // max-height: 33.3rem;
   background: $color-white;
   padding: 2.51132rem;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   isolation: isolate;
-  gap: 1.256rem;
+  // gap: 1.256rem;
   box-shadow: 0rem 0.833333rem 1.66667rem rgba(0, 0, 0, 0.1);
   position: relative;
-  min-height: 18.1566rem;
+  min-height: 16.1566rem;
+  @include media("<phone") {
+    width: 26.551rem;
+    min-height: 12.5rem;
+    padding: 1.77007rem;
+  }
   &:nth-of-type(1) {
     width: 37.7rem;
     margin: 0 1.91rem 0 0;
+    @include media("<phone") {
+      width: 26.572rem;
+      margin: 0 1.346rem 0 1.7rem;
+    }
   }
   &:nth-of-type(2) {
     width: 37.66985rem;
-    margin: 3rem 2.72rem 2.143rem 0;
+    margin: 2rem 2.72rem 1.143rem 0;
+    @include media("<phone") {
+      width: 26.551rem;
+      margin: 1.2rem 0 1.6rem 0;
+    }
   }
   &:nth-of-type(3) {
     width: 42.6rem;
-    margin: -2rem 1.7rem 0 0;
+    margin: -1rem 1.7rem 0 0;
+    @include media("<phone") {
+      width: 26.551rem;
+      margin: 1.128rem 0.937rem 1.1rem 3.039rem;
+    }
   }
   &:nth-of-type(4) {
     width: 37.7rem;
-    margin: 0 0 2rem 0;
+    margin: 0 0 1rem 0;
+    @include media("<phone") {
+      width: 26.572rem;
+      margin: -0.346rem 0 0 0;
+    }
   }
   &:nth-of-type(5) {
     width: 37.57rem;
-    margin: 1.6rem 1.43rem 3.6rem 1.9rem;
+    margin: 1.6rem 1.43rem 1.6rem 1.9rem;
+    @include media("<phone") {
+      width: 26.6rem;
+      margin: -0.055rem 0 0 -0.9rem;
+    }
   }
   &:nth-of-type(6) {
     width: 37.7rem;
-    margin: 0 3.75rem 0 0;
+    margin: 1rem 3.75rem 0 0;
+    @include media("<phone") {
+      width: 26.572rem;
+      margin: 1.358rem 0 0.9rem 1.1rem;
+    }
   }
   &:nth-of-type(7) {
     width: 34rem;
-    margin: 4rem 3.75rem 6rem 0;
+    margin: 3rem 3.75rem 2rem 0;
+    @include media("<phone") {
+      display: none;
+    }
   }
   &:nth-of-type(8) {
     width: 37.7rem;
     margin: 1.5rem 0 0;
-  }
-  @include media("<phone") {
-    width: 25.1rem;
-    height: 16.2rem;
-    &:nth-of-type(1) {
-      margin-left: calc(3.7rem + 9.2rem);
-    }
-    &:nth-of-type(3) {
-      margin-left: calc(-4.2rem + 9.2rem);
-    }
-    &:nth-of-type(5) {
-      margin-left: calc(-9.2rem + 9.2rem);
-    }
-    &:nth-of-type(7),
-    &:nth-of-type(8) {
+    @include media("<phone") {
       display: none;
     }
   }
@@ -123,8 +143,8 @@
   height: 5.023rem;
   border-radius: 50%;
   @include media("<phone") {
-    width: 3.2rem;
-    height: 3.2rem;
+    width: 3.54rem;
+    height: 3.54rem;
   }
 }
 .home__tweet__image {
@@ -132,10 +152,11 @@
 }
 .home__tweet__names {
   @extend %text-l;
+  letter-spacing: unset;
   padding-left: 1.256rem;
   @include media("<phone") {
-    font-size: 1rem;
-    padding-left: 1rem;
+    font-size: 1.062rem;
+    padding-left: 0.885rem;
   }
 }
 .home__tweet__displayname {
@@ -145,8 +166,8 @@
   display: inline-block;
   position: relative;
   @include media("<phone") {
-    font-size: 1rem;
-    padding-left: 1rem;
+    font-size: 1.062rem;
+    line-height: 1.3rem;
   }
 }
 .home__tweet__username {
@@ -157,8 +178,8 @@
     content: "@";
   }
   @include media("<phone") {
-    font-size: 1rem;
-    padding-left: 1rem;
+    font-size: 0.94404rem;
+    line-height: 1.1rem;
   }
 }
 .home__tweet__verified {
@@ -167,35 +188,42 @@
   top: 0;
   width: 1.758rem;
   height: 1.758rem;
+  @include media("<phone") {
+    left: calc(100% + 0.295rem);
+    width: 1.239rem;
+    height: 1.239rem;
+  }
 }
 .home__tweet__text {
   @extend %text-m;
+  letter-spacing: unset;
   font-size: 1.67422rem;
   line-height: 2rem;
   @include media("<phone") {
-    font-size: 1rem;
-    padding-top: 1rem;
+    font-size: 1.18005rem;
+    line-height: 1.4rem;
   }
 }
 .home__tweet__meta {
   @extend %text-m;
+  font-size: 1.475rem;
+  letter-spacing: unset;
+  color: #657786;
   @include media("<phone") {
     font-size: 1rem;
-    padding-top: 1rem;
-  }
-}
-.home__tweet__time {
-  @extend %text-m;
-  @include media("<phone") {
-    font-size: 1rem;
-    padding-top: 1rem;
   }
 }
 
 .home__tweet__icon {
   position: absolute;
   right: 2.511rem;
-  top: 2.511rem;
+  top: 4.15rem;
   width: 3.014rem;
   height: 2.449rem;
+  @include media("<phone") {
+    top: 3rem;
+    right: 1.773rem;
+    width: 2.124rem;
+    height: 1.726rem;
+  }
 }
