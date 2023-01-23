@@ -2,7 +2,7 @@ import * as animate from "animations/@preloader";
 import Component from "classes/Component";
 import gsap from "gsap";
 import SplitType from "split-type";
-import { asyncRandom } from "utils/random";
+import { asyncRandom } from "utils/math";
 
 export default class Preloader extends Component {
   constructor() {
@@ -14,6 +14,8 @@ export default class Preloader extends Component {
         bar: ".preloader__bar",
       },
     });
+    this.isMobile = innerWidth < 768;
+
     this.percentage = new SplitType(this.elements.percentage);
     this.texts = new SplitType(this.elements.texts);
     this.limit = 100;
@@ -73,5 +75,6 @@ export default class Preloader extends Component {
 
   destroy() {
     this.element.parentElement.removeChild(this.element);
+    if (this.isMobile) document.querySelector("html").style.overflow = "scroll";
   }
 }
