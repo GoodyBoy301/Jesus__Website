@@ -33,7 +33,7 @@ app.set("view engine", "pug");
 app.get("/", (req, res) => {
   client.get(
     "search/tweets",
-    { q: "#miraclenodeytirejesus" },
+    { q: "#JesusDid" },
     (error, tweets) => {
       if (tweets?.statuses) updates = tweets;
       res.render("pages/home", {
