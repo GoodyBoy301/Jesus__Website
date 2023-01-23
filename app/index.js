@@ -5,6 +5,8 @@ class App extends Framework {
   constructor() {
     super();
     requestAnimationFrame(this.update.bind(this));
+    window.onunload = () => scrollTo(0, 0);
+
   }
 
   createPages() {
