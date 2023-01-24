@@ -1,17 +1,19 @@
 import gsap from "gsap";
 import Component from "classes/Component";
+import { map } from "utils/math";
 
 export default class Preloader extends Component {
   constructor(template) {
     super({
       element: ".navigation",
       elements: {
-        links: ".nav__item",
-        anchorLinks: ".nav__item__destination",
+        links: ".header__item",
+        screenLinks: ".navigation__screen__link",
         activeLink: `#${template}`,
-        highlighter: ".nav__item__highlighter",
         wrapper: ".home__wrapper",
         worksWrapper: ".home__works__wrapper",
+        hamburger: ".navigation__hamburger__wrapper",
+        screen: ".navigation__screen__wrapper",
       },
     });
     this.addEventListeners();
@@ -20,16 +22,11 @@ export default class Preloader extends Component {
 
   create() {
     this.reCalculate();
-    this.elements.activeLink.classList.add("nav__item__active");
-    const bounds = this.elements.activeLink.getBoundingClientRect();
-    gsap.to(".nav__item__highlighter", {
-      left: bounds.left,
-      width: bounds.width,
-      height: bounds.height,
-      top: bounds.top,
-    });
+    this.previousIndex = 0;
   }
   reCalculate() {
+    this.isMobile = innerWidth < 768;
+
     this.scrolls = [
       {
         target: 0,
@@ -41,17 +38,9 @@ export default class Preloader extends Component {
         limitHor: this.elements.worksWrapper?.clientWidth - innerWidth,
       },
       {
-        target: (this.elements.wrapper.clientHeight - innerHeight) / 7,
-        targetX: 0,
-        // last: { y: 0, clientY: 0, x: 0, clientX: 0 },
-        limit: (this.elements.wrapper?.clientHeight - innerHeight) / 2.375,
-        limitVertA: (this.elements.wrapper?.clientHeight - innerHeight) / 2.375,
-        limitVertB: this.elements.wrapper?.clientHeight - innerHeight,
-        limitHor: this.elements.worksWrapper?.clientWidth - innerWidth,
-      },
-      {},
-      {
-        target: (this.elements.wrapper.clientHeight - innerHeight) / 2.375,
+        target:
+          (this.elements.wrapper.clientHeight - innerHeight) /
+          (this.isMobile ? 10.25 : 7),
         targetX: 0,
         // last: { y: 0, clientY: 0, x: 0, clientX: 0 },
         limit: (this.elements.wrapper?.clientHeight - innerHeight) / 2.375,
@@ -60,8 +49,10 @@ export default class Preloader extends Component {
         limitHor: this.elements.worksWrapper?.clientWidth - innerWidth,
       },
       {
-        target: (this.elements.wrapper.clientHeight - innerHeight) / 1.55,
-        targetX: this.elements.worksWrapper?.clientWidth - innerWidth,
+        target:
+          (this.elements.wrapper.clientHeight - innerHeight) /
+          (this.isMobile ? 4.75 : 2.375),
+        targetX: 0,
         // last: { y: 0, clientY: 0, x: 0, clientX: 0 },
         limit: (this.elements.wrapper?.clientHeight - innerHeight) / 2.375,
         limitVertA: (this.elements.wrapper?.clientHeight - innerHeight) / 2.375,
@@ -69,8 +60,28 @@ export default class Preloader extends Component {
         limitHor: this.elements.worksWrapper?.clientWidth - innerWidth,
       },
       {
-        target: (this.elements.wrapper.clientHeight - innerHeight) / 1.05,
-        targetX: this.elements.worksWrapper?.clientWidth - innerWidth,
+        // target:
+        //   (this.elements.wrapper.clientHeight - innerHeight) /
+        //   (this.isMobile ? 1.12 : 1.55),
+        target:
+          (this.elements.wrapper.clientHeight - innerHeight) /
+          (this.isMobile ? 1.12 : 1.3),
+        targetX: this.isMobile
+          ? 0
+          : this.elements.worksWrapper?.clientWidth - innerWidth,
+        // last: { y: 0, clientY: 0, x: 0, clientX: 0 },
+        limit: (this.elements.wrapper?.clientHeight - innerHeight) / 2.375,
+        limitVertA: (this.elements.wrapper?.clientHeight - innerHeight) / 2.375,
+        limitVertB: this.elements.wrapper?.clientHeight - innerHeight,
+        limitHor: this.elements.worksWrapper?.clientWidth - innerWidth,
+      },
+      {
+        target:
+          (this.elements.wrapper.clientHeight - innerHeight) /
+          (this.isMobile ? 1 : 1.05),
+        targetX: this.isMobile
+          ? 0
+          : this.elements.worksWrapper?.clientWidth - innerWidth,
         // last: { y: 0, clientY: 0, x: 0, clientX: 0 },
         limit: (this.elements.wrapper?.clientHeight - innerHeight) / 2.375,
         limitVertA: (this.elements.wrapper?.clientHeight - innerHeight) / 2.375,
@@ -80,31 +91,52 @@ export default class Preloader extends Component {
     ];
   }
 
-  highlight(element, index) {
-    this.elements.links.forEach((element) => {
-      element.classList.remove("nav__item__active");
-    });
-    element.classList.add("nav__item__active");
-    const bounds = element.getBoundingClientRect();
-    gsap.to(".nav__item__highlighter", {
-      left: bounds.left,
-      width: bounds.width,
-      height: bounds.height,
-      top: bounds.top,
-    });
-    if (index === 2) {
-      console.log(6);
+  navigate(index, close = false) {
+    const toWorks =
+      (this.previousIndex === 2 && index === 3) ||
+      (this.previousIndex === 3 && index === 2);
+    if (
+      this.isMobile &&
+      Math.abs(index - this.previousIndex) <= 1 &&
+      !toWorks
+    ) {
+      scrollTo({ top: this.scrolls[index].target, behavior: "smooth" });
+    } else if (this.isMobile) {
+      scrollTo({
+        top: map(
+          0.75,
+          0,
+          1,
+          this.scrolls[this.previousIndex].target,
+          this.scrolls[index].target
+        ),
+      });
+      scrollTo({ top: this.scrolls[index].target, behavior: "smooth" });
     } else {
       this.dispatchEvent({ type: "smoothScroll", scroll: this.scrolls[index] });
+    }
+    if (close) this.toggle();
+    this.previousIndex = index;
+  }
+
+  toggle() {
+    const { hamburger, screen } = this.elements;
+    if (hamburger.classList.contains("open")) {
+      hamburger.classList.remove("open");
+      screen.classList.remove("open");
+    } else {
+      hamburger.classList.add("open");
+      screen.classList.add("open");
     }
   }
 
   addEventListeners() {
     this.elements.links.forEach((element, index) => {
-      element.onclick = () => this.highlight(element, index);
+      element.onclick = () => this.navigate(index);
     });
-    this.elements.anchorLinks.forEach((element) => {
-      element.onclick = (e) => e.preventDefault();
+    this.elements.screenLinks.forEach((element, index) => {
+      element.onclick = () => this.navigate(index, true);
     });
+    this.elements.hamburger.onclick = () => this.toggle();
   }
 }
