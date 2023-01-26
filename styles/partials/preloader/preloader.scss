@@ -2,17 +2,91 @@
   @extend %screen-full;
   z-index: $z-9;
   display: grid;
-  place-content: center;
+  place-content: flex-end;
   transform-origin: 100%;
-}
-.preloader__text {
-  span {
-    display: inline-block;
-  }
+  background: $color-gray;
 }
 .preloader__number {
+  @extend %text-stat;
+  line-height: 102%;
+  font-size: 45.6179rem;
+  margin-left: auto;
+  margin-right: 7.3rem;
+  opacity: 0;
+  @include media("<phone") {
+    font-size: 20rem;
+    margin-right: 0.75rem;
+  }
+  .char {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    //   position: relative;
+    //   color: transparent;
+
+    //   &::before {
+    //     content: attr(data-from);
+    //     position: absolute;
+    //     z-index: 4;
+    //     left: 0;
+    //     color: $color-black;
+    //   }
+    //   &:after {
+    //     content: attr(data-to);
+    //     position: absolute;
+    //     z-index: 4;
+    //     left: 0;
+    //     color: $color-black;
+    //   }
+    //   .char:nth-of-type(2) {
+    //   }
+  }
+}
+.preloader__texts {
+  margin-left: 7.3rem;
+  position: relative;
+  min-height: calc(14.3rem - 1.1404475rem);
+  @include media("<phone") {
+    margin-left: 1.7rem;
+    min-height: 7.6rem;
+  }
+
+  opacity: 0;
+}
+.preloader__text {
+  top: 8.6rem;
+  bottom: 3rem;
+  @extend %text-l;
   position: absolute;
-  width: 100%;
-  text-align: center;
-  bottom: 0;
+  line-height: 2.7rem;
+  @include media("<phone") {
+    font-size: 1.6rem;
+    bottom: 1.634rem;
+    top: 4.1rem;
+  }
+  .word {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+}
+.preloader__track {
+  margin: 0 7.3rem 12.1rem;
+  background: $color-white;
+  width: 136.7rem;
+  height: 0.4rem;
+  position: relative;
+  border-radius: 2.5rem;
+  @include media("<phone") {
+    width: 33.6rem;
+    margin: 0 1.7rem 5.9rem;
+    height: 0.2rem;
+  }
+}
+.preloader__bar {
+  background: $color-black;
+  width: 0%;
+  position: absolute;
+  height: 0.8rem;
+  transform: translateY(-25%);
+  border-radius: 2.5rem;
+  @include media("<phone") {
+    height: 0.4rem;
+  }
 }

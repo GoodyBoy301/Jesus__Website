@@ -42,14 +42,16 @@
   display: flex;
   flex-wrap: wrap;
   // margin: 5rem calc(-50rem) 20rem calc(-15rem);
-  margin: 5rem calc(-65rem) 20rem -9.6rem;
+  margin: 2rem calc(-65rem) 27rem -9.6rem;
+  padding: 3rem 0;
   // gap: 1.6rem 1.33rem;
+  overflow:hidden;
   @include media("<phone") {
-    margin-top: unset;
+    margin-top: -3rem;
     // width: calc(55rem + 9.2rem);
     width: calc(65rem + 9.2rem);
     margin-left: -5.1rem;
-    margin-bottom: unset;
+    margin-bottom: -3rem;
   }
 }
 .home__tweet {

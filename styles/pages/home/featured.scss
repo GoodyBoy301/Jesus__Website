@@ -5,23 +5,45 @@
   margin: 22.5rem 0 30rem;
   // min-height:700vh;
   // position:relative;
+  @include media("<phone") {
+    margin: 14.561rem 0;
+  }
 }
 .home__works__wrapper {
   display: flex;
   width: fit-content;
   // translate: calc(-130rem * 6);
+  @include media("<phone") {
+    display: grid;
+  }
 }
 .home__works__heading {
   min-width: calc(151.2rem - 20.2rem);
   // margin: 25rem 0 0rem;
+  @include media("<phone") {
+    min-width: unset;
+  }
 }
 .home__works__title {
   @extend %text-title-s;
+  @extend %gray-to-black;
   width: 71.7rem;
+  @include media("<phone") {
+    font-size: 1.7rem;
+    font-family: $font-aeonik;
+    font-weight: 500;
+    line-height: 1.9rem;
+    color: #000000;
+    width: unset;
+    margin: 0 -0.5rem;
+  }
 }
 .home__works__media {
   margin: 14.336rem auto 0;
   width: 111.353rem;
+  @include media("<phone") {
+    display: none;
+  }
 }
 .home__works__bible {
 }

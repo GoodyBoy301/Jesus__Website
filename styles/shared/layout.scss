@@ -5,27 +5,14 @@
   left: 0;
   width: 100%;
 }
-%screen-about {
-  margin: 0 4rem;
-  width: 139rem;
-  height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  align-items: baseline;
-  @include media("<phone") {
-    height: unset;
-    width: 32.2rem;
-    z-index: $z-1;
-    position: relative;
-    filter: contrast(0.5);
-  }
-}
+
 %body {
-  padding: 2.5rem 4.5rem 0;
+  padding: 21.1rem 10.1rem 0;
   @include media("<phone") {
-    padding: clamp(0rem, 2.7rem, 30px) clamp(0rem, 1.6rem, 20px) 0;
+    padding: clamp(0rem, 11.9rem, 125px) clamp(0rem, 4.3rem, 450px) 0;
   }
+  position: fixed;
+  top: 0;
 }
 %row {
   display: flex;
@@ -33,7 +20,7 @@
   align-items: center;
 }
 %light-theme {
-  background: $color-white;
+  background: $color-gray;
   color: $color-black;
 }
 %hard-center {
@@ -47,6 +34,11 @@
 }
 %fixed {
   position: fixed;
+  left: 0;
+  right: 0;
+}
+%absolute {
+  position: absolute;
   left: 0;
   right: 0;
 }

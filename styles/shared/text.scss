@@ -11,63 +11,111 @@
   }
 }
 
-%text-10 {
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-%text-14-m {
-  @include media("<phone") {
-    line-height: 1.2;
-    font-size: 1.4rem;
-  }
-}
-
-%text-15-m {
-  @include media("<phone") {
-    font-size: clamp(0rem, 1.5rem, 20px);
-    line-height: 1.25;
-  }
-}
-
-%text-16 {
+%text-s {
   font-size: 1.6rem;
-  line-height: 1.2;
-  @include media("<phone") {
-    font-size: 1rem;
-  }
-}
-
-%text-18 {
-  font-size: 1.8rem;
-  line-height: 1.2;
-  font-weight: 500;
-  @include media("<phone") {
-    font-size: 1.1rem;
-  }
-}
-
-%text-20 {
-  font-size: 2rem;
-  line-height: 1.2;
-  @include media("<phone") {
-    font-size: clamp(0rem, 1.4rem, 15px);
-  }
-}
-
-%text-22 {
-  font-size: 2rem;
-  line-height: 1.2;
-  @include media("<phone") {
-    font-size: clamp(0rem, 1.1rem, 15px);
-  }
-}
-
-%text-30 {
-  font-size: 3rem;
-  line-height: 1.5;
+  line-height: 99.5%;
+  font-family: $font-aeonik;
+  font-weight: 250;
+  letter-spacing: -0.02em;
   @include media("<phone") {
     font-size: clamp(0rem, 0.9rem, 15px);
     line-height: 1.2;
   }
+}
+
+%text-m {
+  font-size: 2rem;
+  line-height: 2.2rem;
+  font-family: $font-aeonik;
+  font-weight: 250;
+  letter-spacing: -0.02em;
+  @include media("<phone") {
+    font-size: clamp(0rem, 1.6rem, 175px);
+    line-height: 1.8rem;
+  }
+}
+
+%text-l {
+  font-size: 2.4rem;
+  line-height: 99.5%;
+  font-family: $font-aeonik;
+  font-weight: 250;
+  letter-spacing: -0.02em;
+  @include media("<phone") {
+    font-size: clamp(0rem, 1.35695rem, 15px);
+  }
+}
+
+%text-nav {
+  font-size: 1.7rem;
+  font-family: $font-aeonik;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  line-height: 2rem;
+  @include media("<phone") {
+    font-size: clamp(0rem, 2rem, 30px);
+    font-weight: 500;
+    word-spacing: 0.25em;
+  }
+}
+
+%text-title {
+  font-size: 21rem;
+  font-weight: 400;
+  word-spacing: 0.25em;
+  letter-spacing: -0.055em;
+  font-family: $font-gobold;
+  line-height: 104%;
+  // line-height: 21.8rem;
+  text-transform: uppercase;
+  @include media("<phone") {
+    font-size: clamp(0rem, 11.2755rem, 125px);
+  }
+}
+
+%text-title-s {
+  font-size: 20rem;
+  font-weight: 400;
+  word-spacing: 0.25em;
+  letter-spacing: -0.02em;
+  font-family: $font-gobold;
+  line-height: 99.5%;
+  vertical-align: top;
+  text-transform: uppercase;
+  @include media("<phone") {
+    font-size: clamp(0rem, 8rem, 100px);
+  }
+}
+
+%text-stat {
+  font-size: 29.356rem;
+  font-weight: 400;
+  word-spacing: 0.25em;
+  letter-spacing: -2%;
+  font-family: $font-gobold;
+  line-height: 99.5%;
+  vertical-align: top;
+  text-transform: uppercase;
+  @include media("<phone") {
+    font-size: clamp(0rem, 13.775rem, 150px);
+  }
+}
+
+%gray-to-black {
+  position: relative;
+  // color: $color-inverse;
+  // span {
+  //   // background: linear-gradient(135deg, transparent, $color-gray 30%);
+  //   background: $color-gray;
+  //   position: absolute;
+  //   width: calc(15000% / 75);
+  //   height: 100%;
+  //   transform: skewX(-45deg);
+  //   top: 0;
+  //   left: 0;
+  //   mix-blend-mode: soft-light;
+  //   pointer-events: none;
+  //   opacity: 1;
+  // }
 }

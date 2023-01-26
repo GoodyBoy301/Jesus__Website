@@ -12,6 +12,7 @@
     min-height: 830rem;
     overflow-x: hidden;
     max-width: calc(100vw - clamp(0rem, 9rem, 900px));
+    position: absolute;
   }
 }
 .home__title {
@@ -37,17 +38,19 @@
   display: block;
 }
 .home__into__wrapper {
-  display: grid;
+  display: flex;
+  flex-direction: column;
 }
 .home__intro__media {
   @extend %fixed;
   top: 50.3rem;
   width: 51.5rem;
   margin: 0 auto;
-  display: grid;
-  place-content: center;
+  display: flex;
+  flex-direction: column;
   @include media("<phone") {
     width: 28.189rem;
+    height: 51.625rem;
     position: relative;
     bottom: 2.9rem;
     top: unset;
@@ -59,6 +62,7 @@
   margin: 0 auto;
   @include media("<phone") {
     width: 11.415rem;
+    height: auto;
   }
 }
 .home__intro__statue {
@@ -66,13 +70,18 @@
   position: absolute;
   min-height: 77.705rem;
   top: 2.8rem;
+  @include media(">phone") {
+    background: unset !important;
+  }
   @include media("<phone") {
     width: 28.189rem;
     min-height: unset;
+    height: 40.2672rem;
     position: relative;
     bottom: 9.5rem;
     top: unset;
     left: 0.2rem;
+    background-size: cover;
   }
 }
 

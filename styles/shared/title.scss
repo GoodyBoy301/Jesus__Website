@@ -1,6 +1,8 @@
-%title-30 {
+%title-nav {
+  font-size: 2rem;
+  font-family: $font-sans;
   @include media("<phone") {
-    font-size: clamp(0rem, 3rem, 45px);
+    font-size: clamp(0rem, 2rem, 30px);
     font-weight: 500;
     word-spacing: 0.25em;
   }
@@ -38,12 +40,16 @@
   }
 }
 
-%title-200 {
+%title-x {
   font-size: 20rem;
   font-weight: 400;
   word-spacing: 0.25em;
+  letter-spacing: -0.075em;
+  font-family: $font-sans;
+  line-height: 0.75;
+  text-transform: uppercase;
   @include media("<phone") {
-    font-size: clamp(0rem, 4.5rem, 60px);
+    font-size: clamp(0rem, 8rem, 100px);
   }
 }
 

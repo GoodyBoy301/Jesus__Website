@@ -2,17 +2,68 @@
   display: block;
 }
 .home__stats__wrapper {
-  display:flex;
+  display: flex;
   margin: 12.995rem calc(-10.1rem + 2.5rem);
-  justify-content:space-between;
+  justify-content: space-between;
+  @include media("<phone") {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 5.217rem -0.5rem 0 -0.4rem;
+    width: 31.505rem;
+    gap: 4.9rem 1.249rem;
+  }
 }
 .home__stat {
-  display:block
+  display: block;
+  &:nth-of-type(2),
+  :nth-of-type(4) {
+    margin-left: 0.85rem;
+  }
 }
 .home__stats__number {
   @extend %text-stat;
+  line-height: 100%;
+  --bottom: 0%;
+  --top: 100%;
+  opacity: 1 !important;
+  .char {
+    position: relative;
+    overflow: hidden;
+    &:last-of-type {
+      color: transparent;
+      &::before {
+        content: attr(before);
+        position: absolute;
+        bottom: var(--bottom);
+        left: 0;
+        color: $color-black;
+      }
+      &::after {
+        content: attr(after);
+        position: absolute;
+        top: var(--top);
+        left: 0;
+        color: $color-black;
+      }
+    }
+  }
 }
 .home__stats__description {
   @extend %text-l;
-  margin:2.75rem 2rem;
+  margin: 2.75rem 2rem;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  --left: 0%;
+  &::after {
+    content: "";
+    position: absolute;
+    background: $color-black;
+    left: var(--left);
+    width: 100%;
+    height: 100%;
+  }
+  @include media("<phone") {
+    margin: 0.867rem 0;
+  }
 }

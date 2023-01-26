@@ -1,18 +1,22 @@
 html {
   overflow: hidden;
-  font-size: calc(100vw / 1440 * 10);
+  font-size: calc(100vw / 1512 * 10);
   @include media("<phone") {
-    font-size: calc(100vw / 360 * 10);
+    font-size: calc(100vw / 390 * 10);
+    // overflow: scroll;
   }
 }
 
 body {
-  @extend %text-10;
+  @extend %text-s;
   @extend %light-theme;
   min-height: 100vh;
   user-select: none;
   -webkit-user-drag: none;
   overflow: hidden;
+  @include media("<phone") {
+    overflow: scroll;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -24,24 +28,30 @@ video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  // display: none;
 }
 
 input,
 textarea,
 button,
 select,
-a {
+a,
+div {
   -webkit-tap-highlight-color: transparent;
 }
 
 h1 {
-  opacity: 0;
+  // opacity: 0;
 }
 [data-subTitle] {
   opacity: 0;
   span {
-    opacity: 0;
+    // opacity: 0;
   }
+}
+
+[data-reveal] {
+  opacity: 0;
 }
 
 canvas {

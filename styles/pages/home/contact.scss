@@ -1,21 +1,36 @@
 .home__contact {
 }
 .home__contact__wrapper {
-  margin: 27.5rem 0 0;
+  margin: 24.5rem 0 0;
+  @include media("<phone") {
+    margin-top: unset;
+  }
 }
 .home__contact__title {
   @extend %text-title-s;
+  @extend %gray-to-black;
   width: 65rem;
   &:after {
     content: "*";
+  }
+  @include media("<phone") {
+    width: 31.9rem;
   }
 }
 .home__contact__text {
   @extend %text-m;
   width: 72.5rem;
   margin-left: 44rem;
+  @include media("<phone") {
+    margin-left: unset;
+    margin-top: 1.5rem;
+    width: 31.6rem;
+  }
 }
 .home__contact__closure {
   display: block;
   margin-top: 2.025rem;
+  @include media("<phone") {
+    margin-top: 0.9rem;
+  }
 }

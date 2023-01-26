@@ -1,5 +1,28 @@
 .footer {
-  @extend %fixed;
-  @extend %hard-center;
+  position: absolute;
+  width: 100%;
   bottom: 0;
+  left: 0rem;
+  right: 0rem;
+  @include media("<phone") {
+    left: 3.6rem;
+    right: 3.6rem;
+    width: calc(100% - 7.4rem);
+  }
+}
+
+.footer__wrapper {
+  border-top: 0.2rem solid black;
+  padding: 2rem 10.1rem 7.7rem;
+  // margin: 0 10.1rem;
+  @include media("<phone") {
+    padding: 1.436rem 0.1rem 4.036rem;
+    border-top-width: 0.0136336rem;
+  }
+}
+.footer__text {
+  @extend %text-s;
+  @include media("<phone") {
+    font-size: 1.09069rem;
+  }
 }

@@ -1,10 +1,62 @@
-.hamburger {
-  @extend %mobile;
-  display: none;
+.navigation__hamburger {
+  display: block;
+  position: fixed;
+  right: 10.6rem;
+  top: 6.1rem;
+  z-index: $z-2;
+  opacity: 0;
   @include media("<phone") {
-    display: block;
-    &:hover {
-      cursor: pointer;
+    top: 2.6rem;
+    right: 1.9rem;
+    opacity: 1 !important;
+    transform: translateX(10.6rem);
+  }
+}
+.navigation__hamburger__wrapper {
+  width: 5.8rem;
+  height: 4.2rem;
+  background: $color-black;
+  display: grid;
+  padding: 0.7rem 0.9rem;
+  // gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  @include media("<phone") {
+    width: 3.7rem;
+    height: 2.679rem;
+    padding: 0.4465rem 0.574rem;
+    // gap: 0.319rem;
+  }
+}
+.navigation__hamburger__meat {
+  width: 4rem;
+  height: calc(1.8rem / 3);
+  background: $color-white;
+  transform-origin: 50% 50%;
+  transition: 0.3s $ease-out-expo;
+  @include media("<phone") {
+    width: 2.552rem;
+    height: calc(1.148rem / 3);
+  }
+}
+
+.open {
+  .navigation__hamburger__meat {
+    &:nth-of-type(1) {
+      transform: rotateZ(28.8deg) translate(0.75rem, 1.25rem) scale(1.25, 1.2);
+      @include media("<phone") {
+        transform: rotateZ(28.8deg) translate(0.5rem, 0.8rem) scale(1.25, 1.2);
+      }
+    }
+    &:nth-of-type(2) {
+      opacity: 0;
+    }
+    &:nth-of-type(3) {
+      transform: rotateZ(-28.8deg) translate(0.75rem, -1.25rem) scale(1.25, 1.2);
+      @include media("<phone") {
+        transform: rotateZ(-28.8deg) translate(0.5rem, -0.8rem) scale(1.25, 1.2);
+      }
     }
   }
 }
