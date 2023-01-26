@@ -16,8 +16,8 @@
     "express": "^4.18.1",
     "gsap": "^3.11.2",
     "pug": "^3.0.2",
+    "split-type": "^0.3.3",
     "three": "^0.145.0",
-    "twit": "^2.2.11",
     "twitter": "^1.7.1"
   },
   "devDependencies": {
