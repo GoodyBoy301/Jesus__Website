@@ -1,11 +1,11 @@
 block variables 
-- const title = ""
-- const description = ""
-- const image = ""
-- const site = ""
-- const maskIconColor = ""
-- const TileColor = ""
-- const themeColor = ""
+- const title = "Jesus Christ"
+- const description = "Carpenter, Son of God, Saviour of the World."
+- const image = "/preview.png"
+- const site = "jesus-website.vercel.app"
+- const maskIconColor = "#5bbad5"
+- const TileColor = "#2d89ef"
+- const themeColor = "#ffffff"
 
 
 doctype html
@@ -25,6 +25,8 @@ html(lang="en")
     link(rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png")
     link(rel="manifest" href="/site.webmanifest" crossorigin="use-credentials")
     link(rel="mask-icon" href="/safari-pinned-tab.svg" color=maskIconColor)
+    meta(name="apple-mobile-web-app-title" content=title)
+    meta(name="application-name" content=title)
     meta(name="msapplication-TileColor" content=TileColor)
     meta(name="theme-color" content=themeColor)
 
