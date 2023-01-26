@@ -1,0 +1,354 @@
+.home__work {
+  position: relative;
+  min-width: calc(151.2rem - 20.2rem);
+
+  @include media("<phone") {
+    margin: 1.4rem -0.5rem 0;
+    min-width: unset;
+  }
+
+  &:nth-of-type(1) {
+    @include media("<phone") {
+      width: 30rem;
+    }
+
+    .home__work__title {
+      width: 103rem;
+      word-spacing: 23rem;
+
+      @include media("<phone") {
+        width: unset;
+        word-spacing: unset;
+      }
+    }
+
+    .home__work__text:nth-of-type(1) {
+      width: 26.5rem;
+
+      @include media("<phone") {
+        width: 31.6rem;
+        margin-top: 1.5rem;
+      }
+    }
+
+    .home__work__text:nth-of-type(2) {
+      width: 54.088rem;
+      margin-left: 55rem;
+      position: relative;
+      bottom: 15.5rem;
+
+      @include media("<phone") {
+        width: 31.6rem;
+        position: unset;
+        margin: 0 0;
+      }
+    }
+
+    .home__work__media {
+      width: 30.02rem;
+      top: 23.046rem;
+      left: 20.003rem;
+
+      @include media("<phone") {
+        width: 20.581rem;
+        margin: 3.3rem auto 0;
+        position: unset;
+      }
+    }
+
+    .home__work__reference {
+      position: absolute;
+      top: 16.894rem;
+      left: 57.214rem;
+
+      @include media("<phone") {
+        width: unset;
+        left: 21.6rem;
+        top: 6rem;
+      }
+    }
+  }
+
+  &:nth-of-type(2) {
+    @include media("<phone") {
+      margin-bottom: -20rem;
+    }
+
+    .home__work__text:nth-of-type(1) {
+      width: 37.4rem;
+
+      @include media("<phone") {
+        width: 31.6rem;
+      }
+    }
+
+    .home__work__text:nth-of-type(2) {
+      width: 58.2rem;
+      margin-left: 44rem;
+      position: relative;
+      top: 11.5rem;
+
+      @include media("<phone") {
+        width: 31.6rem;
+        margin-left: unset;
+        position: unset;
+      }
+    }
+
+    .home__work__media {
+      // width: 117rem;
+      width: 127.523rem;
+      top: 18.5rem;
+      left: -22rem;
+      margin-left: -10.1rem;
+
+      @include media("<phone") {
+        width: 67rem;
+        bottom: 13rem;
+        top: -10rem;
+        left: -6.5rem;
+        transform: rotateZ(350deg);
+      }
+    }
+
+    .home__work__reference {
+      position: absolute;
+      top: 16.894rem;
+      left: 50rem;
+
+      @include media("<phone") {
+        top: 6rem;
+        left: 20rem;
+      }
+    }
+  }
+
+  &:nth-of-type(3) {
+    @include media("<phone") {
+      margin-bottom: -10.53rem;
+    }
+
+    .home__work__text:nth-of-type(1) {
+      width: 52.9rem;
+      margin-bottom: unset;
+
+      @include media("<phone") {
+        width: 31.6rem;
+      }
+    }
+
+    .home__work__text:nth-of-type(2) {
+      width: 37.9rem;
+      position: relative;
+      top: 1.7rem;
+      margin-top: unset;
+
+      @include media("<phone") {
+        width: 31.6rem;
+      }
+    }
+
+    .home__work__media {
+      width: 90.178rem;
+      top: 19.771rem;
+      left: 30rem;
+
+      @include media("<phone") {
+        width: 51.091rem;
+        top: unset;
+        bottom: 5.2rem;
+        left: -4rem;
+        margin: 0 -4.5rem;
+      }
+    }
+
+    .home__work__reference {
+      position: absolute;
+      top: 22rem;
+      left: 40.5rem;
+
+      @include media("<phone") {
+        top: 9rem;
+        left: 16.5rem;
+      }
+    }
+  }
+
+  &:nth-of-type(4) {
+    .home__work__title {
+      width: 100rem;
+      word-spacing: 9rem;
+
+      @include media("<phone") {
+        width: 31.9rem;
+        word-spacing: 4rem;
+      }
+    }
+
+    .home__work__text:nth-of-type(1) {
+      width: 31.5rem;
+      margin-bottom: unset;
+
+      @include media("<phone") {
+        width: 31.6rem;
+        margin-top: 3rem;
+      }
+    }
+
+    .home__work__text:nth-of-type(2) {
+      width: 37rem;
+      margin-left: 79.25rem;
+      position: relative;
+      top: 1.7rem;
+      margin-top: unset;
+
+      @include media("<phone") {
+        width: 31.6rem;
+        margin: 1.3rem 0 0;
+        position: unset;
+      }
+    }
+
+    .home__work__media {
+      width: 109.682rem;
+      top: 15rem;
+      left: 1rem;
+      margin-left: -10rem;
+
+      @include media("<phone") {
+        width: 51.922rem;
+        margin: 0 -4.5rem;
+        left: -8.5201rem;
+        top: unset;
+        bottom: 2.158rem;
+        transform: rotateY(180deg);
+      }
+    }
+
+    .home__work__reference {
+      position: absolute;
+      top: 16.894rem;
+      left: 70.5rem;
+
+      @include media("<phone") {
+        top: 12.775rem;
+        left: 9.5rem;
+      }
+    }
+  }
+
+  &:nth-of-type(5) {
+    @include media("<phone") {
+      margin-bottom: -11.3rem;
+    }
+
+    .home__work__text:nth-of-type(1) {
+      width: 47rem;
+
+      @include media("<phone") {
+        width: 31.6rem;
+        margin-top: 4.2rem;
+      }
+    }
+
+    .home__work__text:nth-of-type(2) {
+      width: 34.1rem;
+      margin-left: 78.5rem;
+      position: relative;
+      top: 5rem;
+
+      @include media("<phone") {
+        width: 17.5rem;
+        margin: 2.3rem 0 0;
+        position: unset;
+      }
+    }
+
+    .home__work__media {
+      width: 162.748rem;
+      top: 22.706rem;
+      left: -11.6rem;
+      margin-left: -10.1rem;
+
+      @include media("<phone") {
+        width: 102.071rem;
+        margin: 0 -4.5rem;
+        left: -25.083rem;
+        top: unset;
+        bottom: 11.3rem;
+      }
+    }
+
+    .home__work__reference {
+      position: absolute;
+      top: 21.438rem;
+      left: 63.5rem;
+
+      @include media("<phone") {
+        top: 16.75rem;
+        left: 20rem;
+      }
+    }
+  }
+
+  &:nth-of-type(6) {
+    .home__work__title {
+      width: 100rem;
+      word-spacing: 9rem;
+
+      @include media("<phone") {
+        width: 31.6rem;
+        word-spacing: unset;
+      }
+    }
+
+    .home__work__text:nth-of-type(1) {
+      width: 41.2rem;
+      margin-bottom: unset;
+      margin-left: 2rem;
+
+      @include media("<phone") {
+        width: 31.6rem;
+        margin: 4.2rem 0 0;
+      }
+    }
+
+    .home__work__text:nth-of-type(2) {
+      width: 29.9rem;
+      margin-left: 103rem;
+      position: relative;
+      top: 1.7rem;
+      margin-top: unset;
+
+      @include media("<phone") {
+        width: 31.6rem;
+        margin: unset;
+      }
+    }
+
+    .home__work__media {
+      width: 153.644rem;
+      top: 43.427rem;
+      left: 1rem;
+      margin-left: -10rem;
+
+      @include media("<phone") {
+        width: 85.215rem;
+        margin: 0 -4.5rem;
+        left: -21.7rem;
+        top: 5rem;
+      }
+    }
+
+    .home__work__reference {
+      position: absolute;
+      top: 16.894rem;
+      left: 60rem;
+
+      @include media("<phone") {
+        top: 17.2rem;
+        left: 20rem;
+      }
+    }
+  }
+}
