@@ -4,15 +4,23 @@
 @import "./base/reset";
 
 @import "./shared/text";
-@import "./shared/title";
 @import "./shared/images";
 @import "./shared/icons";
 @import "./shared/layout";
 
 @import "./base/base";
+@import "./base/keyframes";
 
+@import "./partials/works/cases";
+@import "./partials/works/work";
 @import "./partials/footer/footer";
 @import "./partials/header/header";
+@import "./partials/header/hamburger";
+@import "./partials/header/navigation";
 @import "./partials/preloader/preloader";
 
-@import "./pages/home/home";
+@import "./pages/home/hero";
+@import "./pages/home/stats";
+@import "./pages/home/featured";
+@import "./pages/home/updates";
+@import "./pages/home/contact";
