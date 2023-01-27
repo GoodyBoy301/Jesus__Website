@@ -5,18 +5,22 @@ import Canvas from "components/Canvas";
 
 export default class Framework {
   constructor() {
-    this.reCalculate();
-    this.createCanvas();
+    this.reCalculate({ scroll: {} });
+    // this.createCanvas();
     this.createPreloader();
+    // document.querySelector(".preloader").style.display = "none";
+    // if (this.isMobile) document.querySelector("html").style.overflow = "scroll";
+    
     this.createContent();
     this.addEventListeners();
     this.createNavigation();
     this.createRouter();
+    if (!this.preloader) this.onPreloaded();
   }
 
   reCalculate() {
     this.isMobile = innerWidth < 768;
-    this.canvas?.reCalculate();
+    this.canvas?.reCalculate({ scroll: {} });
   }
 
   createPreloader() {
@@ -29,8 +33,15 @@ export default class Framework {
   }
 
   createNavigation() {
-    this.navigation = new Navigation();
+    this.navigation = new Navigation(this.template);
     this.navigation.addEventListener("completed", this.onNavigate.bind(this));
+    this.navigation.addEventListener("smoothScroll", (event) => {
+      const scroll = event.scroll;
+      scroll.current = this.page.scroll.target;
+      scroll.currentX = this.page.scroll.targetX;
+      scroll.last = this.page.scroll.last;
+      this.page.reCalculate({ scroll });
+    });
   }
   async onNavigate({ event, push = true }) {
     const [html, template] = await this.router.go(event);
@@ -61,10 +72,10 @@ export default class Framework {
   }
 
   onResize() {
-    this.reCalculate && this.reCalculate();
-    this.page.reCalculate && this.page.reCalculate();
-    this.router.reCalculate && this.router.reCalculate();
-    this.navigation.reCalculate && this.navigation.reCalculate();
+    this.reCalculate && this.reCalculate({ scroll: {} });
+    this.page.reCalculate && this.page.reCalculate({ scroll: {} });
+    this.router.reCalculate && this.router.reCalculate({ scroll: {} });
+    this.navigation.reCalculate && this.navigation.reCalculate({ scroll: {} });
   }
 
   addEventListeners() {
