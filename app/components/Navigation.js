@@ -31,33 +31,18 @@ export default class Preloader extends Component {
       {
         target: 0,
         targetX: 0,
-        // last: { y: 0, clientY: 0, x: 0, clientX: 0 },
-        limit: (this.elements.wrapper?.clientHeight - innerHeight) / 2.375,
-        limitVertA: (this.elements.wrapper?.clientHeight - innerHeight) / 2.375,
-        limitVertB: this.elements.wrapper?.clientHeight - innerHeight,
-        limitHor: this.elements.worksWrapper?.clientWidth - innerWidth,
       },
       {
         target:
           (this.elements.wrapper.clientHeight - innerHeight) /
           (this.isMobile ? 10.25 : 7),
         targetX: 0,
-        // last: { y: 0, clientY: 0, x: 0, clientX: 0 },
-        limit: (this.elements.wrapper?.clientHeight - innerHeight) / 2.375,
-        limitVertA: (this.elements.wrapper?.clientHeight - innerHeight) / 2.375,
-        limitVertB: this.elements.wrapper?.clientHeight - innerHeight,
-        limitHor: this.elements.worksWrapper?.clientWidth - innerWidth,
       },
       {
         target:
           (this.elements.wrapper.clientHeight - innerHeight) /
           (this.isMobile ? 4.75 : 2.375),
         targetX: 0,
-        // last: { y: 0, clientY: 0, x: 0, clientX: 0 },
-        limit: (this.elements.wrapper?.clientHeight - innerHeight) / 2.375,
-        limitVertA: (this.elements.wrapper?.clientHeight - innerHeight) / 2.375,
-        limitVertB: this.elements.wrapper?.clientHeight - innerHeight,
-        limitHor: this.elements.worksWrapper?.clientWidth - innerWidth,
       },
       {
         // target:
@@ -66,14 +51,12 @@ export default class Preloader extends Component {
         target:
           (this.elements.wrapper.clientHeight - innerHeight) /
           (this.isMobile ? 1.12 : 1.3),
+        current:
+          (this.elements.wrapper.clientHeight - innerHeight) /
+          (this.isMobile ? 1.12 : 1.3),
         targetX: this.isMobile
           ? 0
           : this.elements.worksWrapper?.clientWidth - innerWidth,
-        // last: { y: 0, clientY: 0, x: 0, clientX: 0 },
-        limit: (this.elements.wrapper?.clientHeight - innerHeight) / 2.375,
-        limitVertA: (this.elements.wrapper?.clientHeight - innerHeight) / 2.375,
-        limitVertB: this.elements.wrapper?.clientHeight - innerHeight,
-        limitHor: this.elements.worksWrapper?.clientWidth - innerWidth,
       },
       {
         target:
@@ -82,11 +65,6 @@ export default class Preloader extends Component {
         targetX: this.isMobile
           ? 0
           : this.elements.worksWrapper?.clientWidth - innerWidth,
-        // last: { y: 0, clientY: 0, x: 0, clientX: 0 },
-        limit: (this.elements.wrapper?.clientHeight - innerHeight) / 2.375,
-        limitVertA: (this.elements.wrapper?.clientHeight - innerHeight) / 2.375,
-        limitVertB: this.elements.wrapper?.clientHeight - innerHeight,
-        limitHor: this.elements.worksWrapper?.clientWidth - innerWidth,
       },
     ];
   }
