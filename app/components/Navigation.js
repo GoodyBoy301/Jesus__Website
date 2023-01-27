@@ -57,6 +57,9 @@ export default class Preloader extends Component {
         targetX: this.isMobile
           ? 0
           : this.elements.worksWrapper?.clientWidth - innerWidth,
+        normal: 6,
+        scrollUp: false,
+        scrollDown: true,
       },
       {
         target:
@@ -65,6 +68,9 @@ export default class Preloader extends Component {
         targetX: this.isMobile
           ? 0
           : this.elements.worksWrapper?.clientWidth - innerWidth,
+        normal: 6,
+        scrollUp: false,
+        scrollDown: true,
       },
     ];
   }

@@ -37,13 +37,16 @@ export default class LongPage extends Page {
       limitVertB = this.elements.wrapper.clientHeight - innerHeight,
       limitHor = this.elements.worksWrapper.clientWidth - innerWidth,
       normal = 0,
+      scrollUp = true,
+      scrollDown = false,
     },
   }) {
     this.isMobile = innerWidth < 768;
     this.hamLowerLimit = pixelToRem(15);
     this.showHam = this.isMobile ? true : false;
 
-    this.scrollUp = true;
+    this.scrollUp = scrollUp;
+    this.scrollDown = scrollDown;
     this.scroll = {
       current,
       target,
@@ -75,13 +78,13 @@ export default class LongPage extends Page {
         this.scroll.targetX + pixelY,
         this.scroll.limitHor
       );
-
+        
       if (this.stillSnapping) {
         return;
       } else {
         if (pixel < 0) this.scrollUp = true;
         if (pixel >= this.scroll.limitHor) this.scrollDown = true;
-
+        
         pixelY / 1000 > 0 ? this.scroll.normal++ : this.scroll.normal--;
 
         if (this.scroll.normal >= 0 && this.scroll.normal <= 6) {
