@@ -1,8 +1,8 @@
 import Page from "classes/Page";
 import NormalizeWheel from "normalize-wheel";
 import Prefix from "prefix";
-import { clamp, lerp } from "utils/math";
-import Reveal from "classes/Reveal";
+import { clamp, lerp, pixelToRem, snapTo } from "utils/math";
+
 
 export default class LongPage extends Page {
   constructor(params) {

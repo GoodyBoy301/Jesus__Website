@@ -1,8 +1,6 @@
 import LongPage from "classes/LongPage";
 import Reveal from "classes/Reveal";
-import NormalizeWheel from "normalize-wheel";
 import SplitType from "split-type";
-import { clamp, lerp, pixelToRem, snapTo } from "utils/math";
 import animate from "../../animations/@hamburger";
 
 export default class Home extends LongPage {
